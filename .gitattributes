@@ -1,0 +1,6 @@
+# Set default behavior to automatically normalize to linux line endings.
+* text=auto eol=lf
+
+# Windows specific
+/windows/* text=auto eol=crlf
+/windows/*/* text=auto eol=crlf
