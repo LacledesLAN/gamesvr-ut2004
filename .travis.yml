@@ -10,6 +10,9 @@ git:
 services:
   - docker
 
+before_install:
+  - docker pull debian:stretch-slim
+
 script:
   - docker version
   - docker build --no-cache --tag lltest/gamesvr-ut2004 --tag lacledeslan/gamesvr-ut2004 --build-arg BUILDNODE=TravisCI ./linux
@@ -25,3 +28,5 @@ deploy:
   script: docker push lacledeslan/gamesvr-ut2004
   on:
     branch: master
+after_deploy:
+  - curl -X POST https://hooks.microbadger.com/images/lacledeslan/gamesvr-ut2004/$MICROBADGER_TOKEN
