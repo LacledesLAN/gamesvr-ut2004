@@ -40,8 +40,7 @@ RUN curl -sSL "http://raw.content.lacledeslan.net/fastDownloads/_installers/ut20
 
 COPY /UT2004.ini /app/System/UT2004.ini
 
-RUN echo "SRVER-WDGCD-LJFMG-AFQEC" > /app/System/cdkey && `
-    echo "Running server for 120 seconds to generate files and update revision levels" && `
+RUN echo "Running server for 120 seconds to generate files and update revision levels" && `
     cd /app/System && `
     timeout --preserve-status 120 ./ucc-bin server DM-Gael?game=XGame.xDeathMatch -nohomedir -lanplay
 
