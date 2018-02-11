@@ -15,7 +15,7 @@ before_install:
 
 script:
   - docker version
-  - docker build --no-cache --tag lltest/gamesvr-ut2004 --tag lacledeslan/gamesvr-ut2004 --build-arg BUILDNODE=TravisCI ./linux
+  - docker build --no-cache --tag lltest/gamesvr-ut2004 --tag lacledeslan/gamesvr-ut2004 --build-arg BUILDNODE=TravisCI --build-arg SOURCE_COMMIT="$TRAVIS_COMMIT" ./linux
 
 notifications:
   slack:
