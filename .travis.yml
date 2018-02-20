@@ -12,6 +12,7 @@ services:
 
 before_install:
   - docker pull debian:stretch-slim
+  - docker pull lacledeslan/steamcmd:linux
 
 script:
   - docker version

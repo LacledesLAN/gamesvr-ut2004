@@ -1,0 +1,46 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "docker pull lacledeslan/steamcmd:linux; docker pull debian:stretch-slim; docker build ./linux -t lltest/gamesvr-ut2004 --no-cache --build-arg BUILDNODE=$env:computername;",
+            "group": "build",
+            "identifier": "build-image",
+            "problemMatcher": [],
+            "promptOnClose": true
+        },
+        {
+            "label": "Build & Execute Self Tests",
+            "type": "shell",
+            "command": "docker run -it --rm lltest/gamesvr-ut2004 ../ll-tests/gamesvr-ut2004.sh;",
+            "dependsOn": "build-image",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "promptOnClose": true
+        },
+        {
+            "label": "Build & Run Interactive Server",
+            "type": "shell",
+            "command": "docker run -it --rm --net=host lltest/gamesvr-ut2004 ./ucc-bin server DM-Gael?game=XGame.xDeathMatch -nohomedir -lanplay",
+            "dependsOn": "build-image",
+            "group": "build",
+            "problemMatcher": [],
+            "promptOnClose": true
+        },
+        {
+            "label": "Build & Shell In",
+            "type": "shell",
+            "command": "docker run -it --net=host --rm lltest/gamesvr-ut2004;",
+            "dependsOn": "build-image",
+            "group": "build",
+            "problemMatcher": [],
+            "promptOnClose": true
+        }
+    ]
+}
