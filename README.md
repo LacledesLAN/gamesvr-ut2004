@@ -14,7 +14,9 @@ This repository is maintained by [Laclede's LAN](https://lacledeslan.com). Its c
 docker pull lacledeslan/gamesvr-ut2004;
 ```
 
-### Run self tests
+### Run Self Tests
+
+The image includes a test script that can be used to verify its contents. No changes or pull-requests will be accepted to this repository if any tests fail.
 
 ```shell
 TODO
