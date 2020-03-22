@@ -3,6 +3,7 @@
 ## Adapted from the following source(s)
 
 * [Unreal Admin Page - Overview of UT2004 Server Config](http://www.unrealadmin.org/server_ini_reference/ut2004) ([mirror](https://archive.is/wip/sYWPB))
+* [Unreal Admin Wiki - MapVote (UT2004)](https://wiki.unrealadmin.org/MapVote_(UT2004))
 
 ## The INI File
 
@@ -410,28 +411,37 @@ AdminEmail= ;Email address that will appear in the server browser and MOTD as th
 MessageOfTheDay= ;The Message Of The Day appears for a few seconds when clients connect to your server
 
 [xVoting.xVotingHandler]
-VoteTimeLimit=70
-ScoreBoardDelay=5
-bAutoOpen=True
-MidGameVotePercent=50
-bScoreMode=False
-bAccumulationMode=False
-bEliminationMode=False
-MinMapCount=2
-MapVoteHistoryType=xVoting.MapVoteHistory_INI
-RepeatLimit=4
-DefaultGameConfig=0
-bDefaultToCurrentGameType=True
-bMapVote=False
-bKickVote=False
-bMatchSetup=False
-KickPercent=51
-bAnonymousKicking=True
-MapListLoaderType=xVoting.DefaultMapListLoader
-ServerNumber=1
-CurrentGameConfig=0
-GameConfig=(GameClass=,Prefix=,Acronym=,GameName=,Mutators=,Options=)
+VoteTimeLimit=70 ;(1 - 500) The number of seconds to allow for voting at the end of the game or after a Mid-Game vote. After this time limit has been reached the votes are counted and the map with the highest score wins.
+Default is 70
+ScoreBoardDelay=5 ;(1 - 500) The number of seconds to delay before automatically opening the voting window after the end of the current game is reached. This time is given to the players so that they can look at the score board. Default is 10.
+bAutoOpen=True ;(True/False) If true then the voting windows will be automatically opened at the end of each game. If False then the normal cycle maplist is used to select the next map. Players can initiate a Mid-Game vote only. They would have to open the voting window by pressing the MapVote HotKey.
+MidGameVotePercent=50 ;(1 - 100) The percentage of players that are required to vote before a Mid-Game vote is initiated. Set to 100 to virtually disable Mid-Game voting by requiring all of the players to vote. Default is 50.
+bScoreMode=False ;(True/False) Setting this to True will give players move votes based on their score. Example: At the end of a DeathMatch game you have 10 frags and then you vote for DM-Phobos2 then it will place 10 votes for DM-Phobos2. Default is False
+bAccumulationMode=False ;(True/False)Setting this to True will cause non-winning and unused votes to carry over to the next game. If the map you voted for wins then you will not carry over votes to the next game. If the Map you voted for does NOT win then the amount of votes you currently have will carry over. Default is False
+bEliminationMode=False ;(True/False) Setting this to True will disable voting for previously played maps until there are only N enabled maps left in the map list. N is MinMapCount (see below). This is accomplished by incrementing the RepeatLimit after each game. You can use this mode to force players to play all the maps instead of just the popular ones. Default is False
+MinMapCount=2 ;(1 to number of maps on the server) This option is only applicable when bEliminationMode is set to True. It represents the minimum number of enabled maps that will trigger an Elimination Mode MapList Reset. Elimination Mode Maplist Reset is when the all of the maps in the maps list are re-enabled for voting.
+MapVoteHistoryType=xVoting.MapVoteHistory_INI ;The code class that manages the map history data. Default xVoting.MapVoteHistory_INI. It is recommend that you do not change this. This will allow a ini file to be created to store map vote history
+RepeatLimit=4 ;(0 -  total number of maps on the server) The number of games to disable voting for a map after it has been played. Make sure the RepeatLimit is less than the total number of maps in the First GameConfig list. Default is 4
+DefaultGameConfig=0 ;(0 to the number of GameConfig lines - 1 ) This is an index number that tells MapVote which GameConfig to use when all of the players leave the game. This is only used if bDefaultToCurrentGameType is set to False, otherwise it is ignored. The index starts at 0, so the first GameConfig line in you ini file would be 0, the next would be 1
+bDefaultToCurrentGameType=True ;(True/False) If set to True MapVote will stay on the current GameType (GameConfig) when all players leave the server and it switches to a random map. The random map will be one that has a prefix in the GameConfig.Prefix. Set to False and it will switch to the DefaultGameConfig
+bMapVote=False ;(True/False) If set to True MapVote will be Enabled. If set to false it will Disabled. Default is False.
+bKickVote=False ;(True/False) True = If set to true then players can initiate a vote to kick other players. Default is True.
+bMatchSetup=False ;(True/False) Enables clan match setup. Default is False
+KickPercent=51 ;(1 to 100) The percentage of players that are required to place kick votes against one player before that player is kicked from the server. Default is 50.
+bAnonymousKicking=True ;(True/False) If set to true then the player who imitated a kick vote will remain anonymous. It is recommended you set this to false. Default is True
+MapListLoaderType=xVoting.DefaultMapListLoader ;This is a pointer to a code file and code class that is to be used to load the maplist with map names. Default is xVoting.DefaultMapListLoader (do not change this)
+ServerNumber=1 ;(1-11) Only change this if you are running multiple servers from the same system folder. This will tell mapvote to use a different mapvotehistory.ini file. Default is 1
+CurrentGameConfig=0 ;(0 - to number of gameconfigs)
 AccInfo=(Name=,VoteCount=0)
+GameConfig=(GameClass=,Prefix=,Acronym=,GameName=,Mutators=,Options=) ; what gametype/map/mutators/options you allow you players to vote for
+
+; GameClass: This is the name of the package and the name the game class separated by a period. Example: XGame.xCTFGame for CTF
+; Prefix: The MapName Prefixes to associate with this gametype. If you want to list more than one separate each with a comma. This tells MapVote which maps to load in the maplist for this gametype. Example: CTF
+; Acronym: Short text acronym or abbreviation that will be appended to map names in messages to help identify game type for map. Example: Acronym=DM - "JoePlayer voted for DM-MapName(DM)"
+; GameName: This is the name or title of the game type. For example: "Capture The Flag". Note: You can make this anything you like
+; Mutators: List of Mutators to load with this game type. If more than one separate each with a comma. Warning: If you choose to use a mutator in one GameConfig but not another you will need to specify 'none' in the GameConfig where you do not want a mutator. This is because mutators are 'sticky'
+; Options: This is where you can set custom game rules. Example: GoalScore=20?Translocator=True
+
 
 [Engine.BroadcastHandler]
 bMuteSpectators=False ;Enabling this prevents specs from chatting during the game
