@@ -1,6 +1,6 @@
 # Unreal Tournament 2004 Dedicated Server in Docker
 
-Unreal Tournament 2004 is a first-person shooter that is part of the Unreal series, specifically the subseries started by the original Unreal Tournament. Unreal Tournament 2004 features most of the content of its predecessor. Among significant changes to gameplay mechanics and visual presentation, one of the major additions introduced by Unreal Tournament 2004 is the inclusion of vehicles and the Onslaught game type, allowing for large-scale battles.
+Unreal Tournament 2004 is a first-person shooter developed by Epic Games and Digital Extremes, first released in March 2004. Unreal Tournament 2004 features most of the content of its predecessor. Among significant changes to gameplay mechanics and visual presentation, one of the major additions introduced by Unreal Tournament 2004 is the inclusion of vehicles and the Onslaught game type, allowing for large-scale battles.
 
 ![UT2004 Screenshot](https://raw.githubusercontent.com/LacledesLAN/gamesvr-ut2004/master/.misc/screenshot1.jpg "UT2004 Screenshot")
 
