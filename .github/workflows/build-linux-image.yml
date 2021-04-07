@@ -21,12 +21,12 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Pull Latest Linux Base Image
-        run: docker pull debian:stable-slim
+        run: docker pull debian:stretch-slim
       - name: Build Linux Image
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./linux/Dockerfile
+          file: ./linux.Dockerfile
           tags: |
             lacledeslan/gamesvr-ut2004:latest
             ghcr.io/lacledeslan/gamesvr-ut2004:latest

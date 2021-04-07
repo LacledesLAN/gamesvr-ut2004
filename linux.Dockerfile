@@ -1,5 +1,7 @@
 # escape=`
-FROM lacledeslan/steamcmd:linux as ut2004-builder
+ARG CONTAINER_REGISTRY="docker.io"
+
+FROM $CONTAINER_REGISTRY/lacledeslan/steamcmd:linux as ut2004-builder
 
 ARG contentServer=content.lacledeslan.net
 
@@ -45,7 +47,7 @@ RUN useradd --home /app --gid root --system UT2004 &&`
 
 COPY --chown=UT2004:root --from=ut2004-builder /output /app
 
-COPY --chown=UT2004:root /ll-tests/*.sh /app/ll-tests/
+COPY --chown=UT2004:root /linux/ll-tests/*.sh /app/ll-tests/
 
 RUN chmod +x /app/ll-tests/*.sh
 
