@@ -33,12 +33,11 @@ RUN dpkg --add-architecture i386 &&`
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 LABEL com.lacledeslan.build-node=$BUILDNODE `
-      org.label-schema.schema-version="1.0" `
-      org.label-schema.url="https://github.com/LacledesLAN/README.1ST" `
-      org.label-schema.vcs-ref=$SOURCE_COMMIT `
-      org.label-schema.vendor="Laclede's LAN" `
-      org.label-schema.description="Unreal Tournament 2004 Dedicated Server" `
-      org.label-schema.vcs-url="https://github.com/LacledesLAN/gamesvr-ut2004"
+        org.opencontainers.image.source=https://github.com/lacledeslan/gamesvr-ut2004 `
+        org.opencontainers.image.title="Unreal Tournament 2004 Dedicated Server" `
+        org.opencontainers.image.url=https://github.com/LacledesLAN/README.1ST `
+        org.opencontainers.image.vendor="Laclede's LAN" `
+        org.opencontainers.image.version=$SOURCE_COMMIT
 
 # Set up Enviornment
 RUN useradd --home /app --gid root --system UT2004 &&`

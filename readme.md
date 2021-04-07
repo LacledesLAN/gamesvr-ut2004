@@ -4,7 +4,7 @@ Unreal Tournament 2004 is a first-person shooter developed by Epic Games and Dig
 
 ![UT2004 Screenshot](https://raw.githubusercontent.com/LacledesLAN/gamesvr-ut2004/master/.misc/screenshot1.jpg "UT2004 Screenshot")
 
-This repository is maintained by [Laclede's LAN](https://lacledeslan.com). Its contents are intended to be bare-bones and used as a stock server. If any documentation is unclear or it has any issues please see [CONTRIBUTING.md](./CONTRIBUTING.md).
+This repository is maintained by [Laclede's LAN](https://lacledeslan.com). Its contents are intended to be bare-bones and used as a stock server. For an example of building a customized server from this Docker image browse the related child-project [gamesvr-ut2004-freeplay](https://github.com/LacledesLAN/gamesvr-ut2004-freeplay). If any documentation is unclear or it has any issues please see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## Linux
 
@@ -19,13 +19,13 @@ docker pull lacledeslan/gamesvr-ut2004;
 The image includes a test script that can be used to verify its contents. No changes or pull-requests will be accepted to this repository if any tests fail.
 
 ```shell
-TODO
+docker run -it --rm lacledeslan/gamesvr-ut2004:latest /app/ll-tests/gamesvr-ut2004.sh;
 ```
 
 ### Run simple interactive server
 
 ```shell
-TODO
+docker run -it --rm --net=host lacledeslan/gamesvr-ut2004 ./ucc-bin server DM-Gael?game=XGame.xDeathMatch -nohomedir -lanplay
 ```
 
 ## Getting Started with Game Servers in Docker
