@@ -10,13 +10,13 @@ RUN curl -sSL "http://${contentServer}/fastDownloads/_installers/ut2004-3339serv
     unzip /tmp/ut2004-3339server-allcontentpacks.zip -d /output &&`
     rm -f /tmp/ut2004-3339server-allcontentpacks.zip;
 
-RUN curl -sSL "http://${contentServer}/fastDownloads/_installers/ut2004-3369patch-linux.tar.bz2" -o /tmp/ut2004-3369patch-linux.tar.bz2 &&`
-    echo "557fa10d9eae2d95542598ebc78e931b92cf4749  /tmp/ut2004-3369patch-linux.tar.bz2" | sha1sum -c - &&`
-    tar -xvjf /tmp/ut2004-3369patch-linux.tar.bz2 -C /output UT2004-Patch/ --strip-components=1 &&`
-    rm -f /tmp/ut2004-3369patch-linux.tar.bz2;
+RUN curl -sSL "http://${contentServer}/fastDownloads/_installers/ut2004-3369patch-2-linux.tar.bz2" -o /tmp/ut2004-3369patch-2-linux.tar.bz2 &&`
+    echo "a8cc33877a02a0a09c288b5fc248efde282f7bdf  /tmp/ut2004-3369patch-2-linux.tar.bz2" | sha1sum -c - &&`
+    tar -xvjf /tmp/ut2004-3369patch-2-linux.tar.bz2 -C /output UT2004-Patch/ --strip-components=1 &&`
+    rm -f /tmp/ut2004-3369patch-2-linux.tar.bz2;
 
 #=======================================================================
-FROM debian:stretch-slim
+FROM debian:buster-slim
 
 HEALTHCHECK NONE
 
