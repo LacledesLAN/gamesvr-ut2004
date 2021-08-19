@@ -16,7 +16,7 @@ RUN curl -sSL "http://${contentServer}/fastDownloads/_installers/ut2004-3369patc
     rm -f /tmp/ut2004-3369patch-2-linux.tar.bz2;
 
 #=======================================================================
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
 HEALTHCHECK NONE
 
@@ -25,7 +25,7 @@ ARG SOURCE_COMMIT=unspecified
 
 RUN dpkg --add-architecture i386 &&`
     apt-get update && apt-get install -y `
-        ca-certificates lib32gcc1 libstdc++5:i386 libstdc++6:i386 libsdl1.2debian locales locales-all tmux &&`
+        ca-certificates lib32gcc-s1 libstdc++5:i386 libstdc++6:i386 libsdl1.2debian locales locales-all tmux &&`
     apt-get clean &&`
     echo "LC_ALL=en_US.UTF-8" >> /etc/environment &&`
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*;
