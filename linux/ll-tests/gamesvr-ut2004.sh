@@ -149,7 +149,6 @@ should_have 'Executing Class Engine.ServerCommandlet' 'Server started';
 should_have "Game class is 'xDeathMatch'" 'Server loaded deathmatch';
 should_have 'Bringing Level DM-Gael.myLevel up for play' 'Server should load level DM-Gael';
 should_have 'GameInfo::InitGame' 'Server should initialize game';
-should_have "Couldn't open cdkey file" "Stock server build shouldn't include a cd key";
 #####################################################################################################
 #####################################################################################################
 
