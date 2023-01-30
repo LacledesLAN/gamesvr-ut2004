@@ -149,6 +149,8 @@ should_have 'Executing Class Engine.ServerCommandlet' 'Server started';
 should_have "Game class is 'xDeathMatch'" 'Server loaded deathmatch';
 should_have 'Bringing Level DM-Gael.myLevel up for play' 'Server should load level DM-Gael';
 should_have 'GameInfo::InitGame' 'Server should initialize game';
+should_lack 'Resolving master0.gamespy.com...' 'server is not attempting to send stats to gamespy'
+should_lack 'Resolving ut2004master1.epicgames.com...' 'server is not attempting to connect to epic list server';
 #####################################################################################################
 #####################################################################################################
 

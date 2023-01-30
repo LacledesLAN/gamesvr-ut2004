@@ -44,11 +44,15 @@ RUN useradd --home /app --gid root --system UT2004 &&`
     mkdir -p /app/installers &&`
     chown UT2004:root -R /app;
 
+# `RUN true` lines are work around for https://github.com/moby/moby/issues/36573
 COPY --chown=UT2004:root --from=ut2004-builder /output /app
+RUN true
 
 COPY --chown=UT2004:root /linux/ll-tests/*.sh /app/ll-tests/
-
 RUN chmod +x /app/ll-tests/*.sh
+
+# Slightly modified stock server, to prevent calls to decommisioned master list server
+COPY --chown=UT2004:root ./dist/System/UT2004.ini /app/System/UT2004.ini
 
 USER UT2004
 
