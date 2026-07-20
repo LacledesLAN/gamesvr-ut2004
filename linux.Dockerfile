@@ -1,6 +1,6 @@
 ARG CONTAINER_REGISTRY="docker.io"
 
-FROM $CONTAINER_REGISTRY/lacledeslan/steamcmd:linux as ut2004-builder
+FROM $CONTAINER_REGISTRY/lacledeslan/steamcmd:linux AS ut2004-builder
 
 ARG contentServer=content.lacledeslan.net
 
@@ -14,13 +14,26 @@ RUN curl -sSL "http://${contentServer}/fastDownloads/_installers/ut2004-3369patc
     tar -xvjf /tmp/ut2004-3369patch-2-linux.tar.bz2 -C /output UT2004-Patch/ --strip-components=1 && \
     rm -f /tmp/ut2004-3369patch-2-linux.tar.bz2;
 
-#=======================================================================
+
+#---------------------------------
 FROM debian:bullseye-slim
+
+ARG BUILD_DATE=unspecified \
+    BUILD_NODE=unspecified \
+    GIT_REVISION=unspecified
+
+ENV LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 HEALTHCHECK NONE
 
-ARG BUILD_NODE=unspecified
-ARG GIT_REVISION=unspecified
+LABEL architecture="amd64" \
+      com.lacledeslan.build-node=$BUILD_NODE \
+      maintainer="Laclede's LAN <contact@lacledeslan.com>" \
+      org.opencontainers.image.created="$BUILD_DATE" \
+      org.opencontainers.image.description="Unreal Tournament 2004 Dedicated Server" \
+      org.opencontainers.image.revision=$GIT_REVISION \
+      org.opencontainers.image.source="https://github.com/LacledesLAN/gamesvr-ut2004" \
+      org.opencontainers.image.vendor="Laclede's LAN"
 
 RUN dpkg --add-architecture i386 && \
     apt-get update && apt-get install -y \
@@ -29,26 +42,15 @@ RUN dpkg --add-architecture i386 && \
     echo "LC_ALL=en_US.UTF-8" >> /etc/environment && \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*;
 
-ENV LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
-
-LABEL architecture="amd64" \
-    com.lacledeslan.build-node=$BUILD_NODE \
-    maintainer="Laclede's LAN <contact@lacledeslan.com>" \
-    org.opencontainers.image.description="Unreal Tournament 2004 Dedicated Server" \
-    org.opencontainers.image.revision=$GIT_REVISION \
-    org.opencontainers.image.source="https://github.com/LacledesLAN/gamesvr-ut2004" \
-    org.opencontainers.image.vendor="Laclede's LAN"
-
-# Set up Enviornment
+# Set up Environment
 RUN useradd --home /app --gid root --system UT2004 && \
     mkdir -p /app/installers && \
     chown UT2004:root -R /app;
 
-# `RUN true` lines are work around for https://github.com/moby/moby/issues/36573
 COPY --chown=UT2004:root --from=ut2004-builder /output /app
-RUN true
 
 COPY --chown=UT2004:root /linux/ll-tests/*.sh /app/ll-tests/
+
 RUN chmod +x /app/ll-tests/*.sh
 
 # Slightly modified stock server, to prevent calls to decommisioned master list server
