@@ -1,15 +1,15 @@
 ARG CONTAINER_REGISTRY="docker.io"
 
-FROM $CONTAINER_REGISTRY/lacledeslan/steamcmd:linux AS ut2004-builder
+FROM $CONTAINER_REGISTRY/lacledeslan/steamcmd AS ut2004-builder
 
-ARG contentServer=content.lacledeslan.net
+ARG CONTENT_SERVER=content.lacledeslan.net
 
-RUN curl -sSL "http://${contentServer}/fastDownloads/_installers/ut2004-3339server-allcontentpacks.zip" -o /tmp/ut2004-3339server-allcontentpacks.zip && \
+RUN curl -sSL "http://${CONTENT_SERVER}/fastDownloads/_installers/ut2004-3339server-allcontentpacks.zip" -o /tmp/ut2004-3339server-allcontentpacks.zip && \
     echo "0c858f3a490d88aee035afd4bf4d62ba9b9f15db /tmp/ut2004-3339server-allcontentpacks.zip" | sha1sum -c - && \
     unzip /tmp/ut2004-3339server-allcontentpacks.zip -d /output && \
     rm -f /tmp/ut2004-3339server-allcontentpacks.zip;
 
-RUN curl -sSL "http://${contentServer}/fastDownloads/_installers/ut2004-3369patch-2-linux.tar.bz2" -o /tmp/ut2004-3369patch-2-linux.tar.bz2 && \
+RUN curl -sSL "http://${CONTENT_SERVER}/fastDownloads/_installers/ut2004-3369patch-2-linux.tar.bz2" -o /tmp/ut2004-3369patch-2-linux.tar.bz2 && \
     echo "a8cc33877a02a0a09c288b5fc248efde282f7bdf  /tmp/ut2004-3369patch-2-linux.tar.bz2" | sha1sum -c - && \
     tar -xvjf /tmp/ut2004-3369patch-2-linux.tar.bz2 -C /output UT2004-Patch/ --strip-components=1 && \
     rm -f /tmp/ut2004-3369patch-2-linux.tar.bz2;
