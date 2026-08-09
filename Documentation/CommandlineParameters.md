@@ -8,13 +8,13 @@ This tutorial describes the different types of command-line parameters, and cont
 
 Command line parameters must be all on one line, and must follow a fairly rigid format, which is (blue highlighted items are game options, while green options are engine options):
 
-```
+```shell
 ucc server MapName?Game=GameTypeClass?Parameter1=Value1?Parameter2=Value1,Value2?Parameter3=Value1 ini=server.ini userini=user.ini log=server.log
 ```
 
 For example, a valid command line start parameter might look like this:
 
-```
+```shell
 ucc server DM-Antalus.ut2?Game=XGame.XDeathMatch?bAutoNumBots=True ini=server1.ini log=server1.log
 ```
 
@@ -104,31 +104,31 @@ Example: `ucc server CTF-Magma?Game=XGame.XCTFGame?Mutator=XGame.MutInstaGib,XGa
 
 ## LastManStanding Specific Parameters
 
-| Parameter       | Values  | Description |
-| --------------- | ------- | ----------- |
-| AllowAdrenaline | Boolean | Enables/disables adrenaline |
-| AllowPickups    | Boolean | Enables/disables pickups (additional ammo) |
-| CamperAlarm     | Boolean | Enables checking for campers in LMS games. |
+| Parameter       | Values  | Description                                                                |
+| :-------------- | :------ | :------------------------------------------------------------------------- |
+| AllowAdrenaline | Boolean | Enables/disables adrenaline                                                |
+| AllowPickups    | Boolean | Enables/disables pickups (additional ammo)                                 |
+| CamperAlarm     | Boolean | Enables checking for campers in LMS games.                                 |
 | HealthForKill   | Boolean | Players recieve additional health every time when they frag other players. |
-| SuperWeaps      | Boolean | Enables super weapons (Ion & Redeemer). |
+| SuperWeaps      | Boolean | Enables super weapons (Ion & Redeemer).                                    |
 
 ## Mutant Specific Parameters
 
-| Parameter    | Values  | Description |
-| ------------ | ------- | ----------- |
+| Parameter    | Values  | Description                                                                                                                         |
+| :----------- | :------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 | BottomFeeder | Boolean | Enables bottom feeder feature in Mutant games. Player that is the mutant receives additional points for fragging the bottom feeder. |
 
 ## Onslaught Specific Parameters
 
 | Parameter            | Values  | Description |
-| -------------------- | ------- | ----------- |
+| :------------------- | :------ | :---------- |
 | bRandSetupAfterReset | Boolean | Use random link setup after round resets. Overrides value for ONSOnslaughtGame.bRandSetupAfterReset in server's ini file. Only applicable if GoalScore is set to greater than 1. |
 | LinkSetup            | String  | Specifies the link setup to be used for the match. Specify `?LinkSetup=Random` to choose a random link setup. |
 
 ## Assault Specific Parameters
 
 | Parameter          | Values  | Description |
-| ------------------ | ------- | ----------- |
+| :----------------- | :------ | :----------- |
 | RoundTimeLimit     | Int     | Time limit for each round |
 | PracticeTimeLimit  | Int     | Amount of time for the practice round. Practice round is a short, non-scored round that takes place prior to the real match. Primarily used to give all players using slower machines a chance to load the map before the real match begins. |
 | RoundLimit         | Int     | Number of rounds in the assault match |

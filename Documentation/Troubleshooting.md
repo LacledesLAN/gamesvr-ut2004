@@ -9,11 +9,13 @@
 * The Linux file system is case sensitive; your default ini file should be named `UT2004.ini`.
 
 ## MisingIni Error
-```
+
+```text
 MisingIni
 
 History:
 
 Exiting due to error
 ```
+
 **Solution:** Change the current working director to UT2004's 'System' folder.

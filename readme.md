@@ -8,12 +8,12 @@ This repository is maintained by [Laclede's LAN](https://lacledeslan.com). Its c
 
 In addition to the stock UT2004 server, this Docker images includes the following content:
 
-| Name                                       | Description |
-| :----------------------------------------- | ----------- |
-| UT2004 Bonus Onslaught Maps                | Two new Onslaught maps - ONS-Ascendancy and ONS-Aridoom |
-| UT2004 Community Bonus Pack 1 (Re-Release) | A re-release conversion of the Community Bonus Pack for UT2003. |
-| UT2004 Community Bonus Pack 2 Volume 1     | Twenty-one new maps, four new characters and a new mutator (SpiderSteroids). |
-| UT2004 Community Bonus Pack 2 Volume 2     | Twenty new maps, four new characters and two new mutators (Angel Item Physics and Target Practice Physics). |
+| Name                                       | Description                                                                                                                                      |
+| :----------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
+| UT2004 Bonus Onslaught Maps                | Two new Onslaught maps - ONS-Ascendancy and ONS-Aridoom.                                                                                         |
+| UT2004 Community Bonus Pack 1 (Re-Release) | A re-release conversion of the Community Bonus Pack for UT2003.                                                                                  |
+| UT2004 Community Bonus Pack 2 Volume 1     | Twenty-one new maps, four new characters and a new mutator (SpiderSteroids).                                                                     |
+| UT2004 Community Bonus Pack 2 Volume 2     | Twenty new maps, four new characters and two new mutators (Angel Item Physics and Target Practice Physics).                                      |
 | UT2004 Editors Choice Bonus Pack           | Three new vehicles (Cicada, Paladin and SPMA), four new ONS levels (ONS-Adara, ONS-IslandHop, ONS-Tricky and ONS-Urban), and six new characters. |
 
 ## Linux

@@ -3,26 +3,28 @@
 This is a formated archive of [unrealadmin.org's UT2004 server config settings guide](http://www.unrealadmin.org/server_ini_reference/ut2004). The purpose of this copy is to backup - not to supplant.
 
 ## The INI File
+
 ### [URL]
 
-| Setting                             | Description |
-| ------------------------------------| ----------- |
-| Protocol=UT2004                     | |
-| ProtocolDescription=Unreal Protocol | |
-| Name=Player                         | |
-| Map=Index.ut2                       | |
-| LocalMap=NvidiaLogo.ut2             | |
-| NetBrowseMap=Entry.ut2              | |
-| Host=                               | |
-| Portal=                             | |
-| MapExt=ut2                          | |
-| EXEName=UT2004.exe                  | |
-| SaveExt=uvx                         | |
-| Port=7777                           | This is port the server will listen for connections on |
-| Class=Engine.Pawn                   | |
-| Character=Gorge                     | |
+| Setting                             | Description                            |
+| :---------------------------------- | :------------------------------------- |
+| Protocol=UT2004                     |                                        |
+| ProtocolDescription=Unreal Protocol |                                        |
+| Name=Player                         |                                        |
+| Map=Index.ut2                       |                                        |
+| LocalMap=NvidiaLogo.ut2             |                                        |
+| NetBrowseMap=Entry.ut2              |                                        |
+| Host=                               |                                        |
+| Portal=                             |                                        |
+| MapExt=ut2                          |                                        |
+| EXEName=UT2004.exe                  |                                        |
+| SaveExt=uvx                         |                                        |
+| Port=7777                           | Network port the server will listen to |
+| Class=Engine.Pawn                   |                                        |
+| Character=Gorge                     |                                        |
 
 ## [FirstRun]
+
 | Setting   | Description |
 | ----------| ----------- |
 | FirstRun= |             |
@@ -35,7 +37,7 @@ This is a formated archive of [unrealadmin.org's UT2004 server config settings g
 | SavePath=../Save                | |
 | CachePath=../Cache              | |
 | CacheExt=.uxx                   | client-side only |
-| CacheRecordPath=../System/*.ucl | The relative path to use for *.ucl files, which contain all gameinfo, mutator, weapon, etc. information. The game uses these files to determine which mutators, gametypes, etc. should appear in interface lists, such as webadmin or GUI. |
+| CacheRecordPath=../System/*.ucl | Relative path to use for *.ucl files, which contain all gameinfo, mutator, weapon, etc. information. The game uses these files to determine which mutators, gametypes, etc. should appear in interface lists, such as webadmin or GUI. |
 | MusicPath=../Music              | |
 | SpeechPath=../Speech            | |
 | Suppress=DevLoad                | |
@@ -68,30 +70,30 @@ This is a formated archive of [unrealadmin.org's UT2004 server config settings g
 ## [Engine.Engine]
 
 | Setting                                    | Description |
-| -------------------------------------------| ----------- |
-| RenderDevice=D3DDrv.D3DRenderDevice        | |
-| ;RenderDevice=Engine.NullRenderDevice      | |
-| ;RenderDevice=OpenGLDrv.OpenGLRenderDevice | |
-| AudioDevice=ALAudio.ALAudioSubsystem       | |
-| NetworkDevice=IpDrv.TcpNetDriver           | |
-| DemoRecordingDevice=Engine.DemoRecDriver   | |
-| Console=XInterface.ExtendedConsole         | |
-| GUIController=GUI2K4.UT2K4GUIController    | |
-| Language=int                               | |
-| Product=UT2004                             | |
-| GameEngine=Engine.GameEngine               | |
-| EditorEngine=Editor.EditorEngine           | |
-| DefaultGame=XGame.XDeathmatch              | |
-| DefaultServerGame=XGame.XDeathmatch        | |
-| ViewportManager=WinDrv.WindowsClient       | |
-| Render=Render.Render                       | |
-| Input=Engine.Input                         | |
-| Canvas=Engine.Canvas                       | |
+| :------------------------------------------| :---------- |
+| RenderDevice=D3DDrv.D3DRenderDevice        |             |
+| ;RenderDevice=Engine.NullRenderDevice      |             |
+| ;RenderDevice=OpenGLDrv.OpenGLRenderDevice |             |
+| AudioDevice=ALAudio.ALAudioSubsystem       |             |
+| NetworkDevice=IpDrv.TcpNetDriver           |             |
+| DemoRecordingDevice=Engine.DemoRecDriver   |             |
+| Console=XInterface.ExtendedConsole         |             |
+| GUIController=GUI2K4.UT2K4GUIController    |             |
+| Language=int                               |             |
+| Product=UT2004                             |             |
+| GameEngine=Engine.GameEngine               |             |
+| EditorEngine=Editor.EditorEngine           |             |
+| DefaultGame=XGame.XDeathmatch              |             |
+| DefaultServerGame=XGame.XDeathmatch        |             |
+| ViewportManager=WinDrv.WindowsClient       |             |
+| Render=Render.Render                       |             |
+| Input=Engine.Input                         |             |
+| Canvas=Engine.Canvas                       |             |
 
 ## [Engine.GameEngine]
 
 | Setting                                              | Description |
-| -----------------------------------------------------| ----------- |
+| :----------------------------------------------------| :---------- |
 | CacheSizeMegs=32                                     | |
 | UseSound=True                                        | |
 | MainMenuClass=GUI2K4.UT2K4MainMenu                   | |
@@ -123,7 +125,7 @@ This is a formated archive of [unrealadmin.org's UT2004 server config settings g
 ## [IpDrv.TcpNetDriver]
 
 | Setting                                 | Description |
-| --------------------------------------- | ----------- |
+| :-------------------------------------- | :---------- |
 | LogMaxConnPerIPPerMin=False             | Determines whether repeated connection attempts from an IP should be logged if more than MaxConnPerIPPerMinute has been exceeded for this IP. Generally, you should leave this set to false, as your server might experience lag under an attempted DDoS from all the logging. |
 | MaxConnPerIPPerMinute=5                 | Maximum number of connections to accept from a single IP address | in one minute. Part of the DDoS protection. |
 | LogPortUnreach=False                    | Determines whether ICMP "Port Unreachable" events should be logged. |
@@ -147,7 +149,7 @@ This is a formated archive of [unrealadmin.org's UT2004 server config settings g
 ## [IpDrv.HTTPDownload]
 
 | Setting              | Description |
-| -------------------- | ----------- |
+| :------------------- | :----------- |
 | RedirectToURL=       | URL of redirect server |
 | ProxyServerHost=     | |
 | ProxyServerPort=3128 | If your redirect server is behind a proxy, you'll need to put the proxy's public IP address here |
@@ -155,17 +157,17 @@ This is a formated archive of [unrealadmin.org's UT2004 server config settings g
 
 ## [IpDrv.MasterServerLink]
 
-| Setting              | Description |
-| -------------------- | ----------- |
-| LANPort=11777        | (Client-side) Specifies the port clients should use to broadcast LAN server queries |
-| LANServerPort=10777  | Specifies the query port for LAN servers |
-| MasterServerList=(Address="ut2004master1.epicgames.com",Port=28902) | List of valid master servers |
-| MasterServerList=(Address="ut2004master2.epicgames.com",Port=28902) | |
+| Setting                                                             | Description                                                                         |
+| :------------------------------------------------------------------ | :---------------------------------------------------------------------------------- |
+| LANPort=11777                                                       | (Client-side) Specifies the port clients should use to broadcast LAN server queries |
+| LANServerPort=10777                                                 | Specifies the query port for LAN servers                                            |
+| MasterServerList=(Address="ut2004master1.epicgames.com",Port=28902) | List of valid master servers                                                        |
+| MasterServerList=(Address="ut2004master2.epicgames.com",Port=28902) |                                                                                     |
 
 ## [IpDrv.MasterServerUplink]
 
 | Setting               | Description |
-| --------------------- | ----------- |
+| :-------------------- | :---------- |
 | DoUplink=True         | Specifies whether the server should connect to the master server. If set to false, the server will not appear in the Internet server browser |
 | UplinkToGamespy=True  | Specifies whether the server should send heartbeat information to gamespy |
 | SendStats=True        | Enable stats processing on this server |
@@ -175,7 +177,7 @@ This is a formated archive of [unrealadmin.org's UT2004 server config settings g
 ## [IpDrv.UdpGamespyUplink]
 
 | Setting                | Description |
-| ---------------------- | ----------- |
+| :--------------------- | :---------- |
 | UpdateMinutes=1        | How often to send updates to gamespy's master server. The property name is misleading, however, as the value is multiplied by 60 - a value of 1 means that a heartbeat will be sent to the gamespy master server every 60 minutes. |
 | MasterServerPort=27900 | Gamespy master server port. No need to modify this value |
 | ServerRegion=0         | Used by Gamespy servers to group servers according to region |
@@ -189,7 +191,7 @@ This is a formated archive of [unrealadmin.org's UT2004 server config settings g
 ## [IpDrv.UdpGamespyQuery]
 
 | Setting                       | Description |
-| ----------------------------- | ----------- |
+| :---------------------------- | :---------- |
 | MinNetVer=0                   | |
 | OldQueryPortNumber=7787       | |
 | bDebugPortSwaps=True          | |
@@ -198,13 +200,14 @@ This is a formated archive of [unrealadmin.org's UT2004 server config settings g
 ## [UTV2004c.utvReplication]
 
 | Setting              | Description |
-| -------------------- | ----------- |
-| UtvPackage=UTV2004c  | |
-| ViewMode=0           | |
-| ChatString=          | |
-| wantBehindView=False | |
+| :------------------- | :---------- |
+| UtvPackage=UTV2004c  |             |
+| ViewMode=0           |             |
+| ChatString=          |             |
+| wantBehindView=False |             |
 
 ## [Engine.GameInfo]
+
 | Setting                     | Description |
 | --------------------------- | ----------- |
 | bChangeLevels=True          | Obsolete in UT2004. Servers always performs mapchanges now. |
@@ -295,12 +298,12 @@ Values set here will override the values for identical settings in GameInfo and 
 
 Values set here will override the values for identical settings in GameInfo, UnrealMPGameInfo, and DeathMatch
 
-| Setting                      | Description |
-| ---------------------------- | ----------- |
-| bBalanceTeams=True           | Bots will be placed on the team with the least number of players upon joining the game. |
-| bPlayersBalanceTeams=True    | Players joining the game will be placed on teams according to team size, ignoring the players configured team. |
-| FriendlyFireScale=0          | Amount of damage inflicted when shot by teammates (1.0 represents 100%) |
-| bAllowNonTeamChat=False      | Sets whether members of opposing teams are allowed to join each other's private voice chatrooms |
+| Setting                   | Description                                                                                                   |
+| :------------------------ | :------------------------------------------------------------------------------------------------------------ |
+| bBalanceTeams=True        | Bots will be placed on the team with the least number of players upon joining the game                        |
+| bPlayersBalanceTeams=True | Players joining the game will be placed on teams according to team size, ignoring the players configured team |
+| FriendlyFireScale=0       | Amount of damage inflicted when shot by teammates (1.0 represents 100%)                                       |
+| bAllowNonTeamChat=False   | Sets whether members of opposing teams are allowed to join each other's private voice chatrooms               |
 
 ## [XGame.xDeathMatch]
 
@@ -638,26 +641,20 @@ For each custom bot, you must have one ConfigArray entry in your server's ini un
 
 ## [XGame.TeamRedConfigured]
 
-| Setting                      | Description |
-| ---------------------------- | ----------- |
-| Characters= | |
-| ...         | |
+| Setting     | Description                                                             |
+| :---------- | ----------------------------------------------------------------------- |
 | Characters= | Characters that should be on the red team (only used in single player). |
 
 ## [XGame.TeamBlueConfigured]
 
-| Setting                      | Description |
-| ---------------------------- | ----------- |
-| Characters= | |
-| ...         | |
+| Setting     | Description                                                              |
+| :---------- | :----------------------------------------------------------------------- |
 | Characters= | Characters that should be on the blue team (only used in single player). |
 
 ## [XGame.DMRosterConfigured]
 
-| Setting                      | Description |
-| ---------------------------- | ----------- |
-| Characters= | |
-| ...         | |
+| Setting     | Description                                                                 |
+| :---------- | :-------------------------------------------------------------------------- |
 | Characters= | Characters that should be in DeathMatch games (only used in single player). |
 
 ## [XInterface.MapListDeathMatch]
@@ -690,44 +687,44 @@ For each custom bot, you must have one ConfigArray entry in your server's ini un
 
 ## [XInterface.MapListBombingRun]
 
-| Setting                      | Description |
-| ---------------------------- | ----------- |
-| MapNum=0       | Index of last played map for this maplist |
+| Setting        | Description                                               |
+| :------------- | :-------------------------------------------------------- |
+| MapNum=0       | Index of last played map for this maplist                 |
 | Maps=BR-Anubis | These sections determine the map rotation for your server |
 
-##[BonusPack.MapListMutant]
+## [BonusPack.MapListMutant]
 
-| Setting                      | Description |
-| ---------------------------- | ----------- |
-| MapNum=0        | Index of last played map for this maplist |
+| Setting         | Description                                               |
+| :-------------- | :-------------------------------------------------------- |
+| MapNum=0        | Index of last played map for this maplist                 |
 | Maps=DM-Antalus | These sections determine the map rotation for your server |
 
 ## [SkaarjPack.MapListInvasion]
 
-| Setting                      | Description |
-| ---------------------------- | ----------- |
-| MapNum=0        | Index of last played map for this maplist |
+| Setting         | Description                                               |
+| :-------------- | :-------------------------------------------------------- |
+| MapNum=0        | Index of last played map for this maplist                 |
 | Maps=DM-Antalus | These sections determine the map rotation for your server |
 
 ## [BonusPack.MapListLastManStanding]
 
-| Setting                      | Description |
-| ---------------------------- | ----------- |
-| MapNum=0        | Index of last played map for this maplist |
+| Setting         | Description                                               |
+| :-------------- | :-------------------------------------------------------- |
+| MapNum=0        | Index of last played map for this maplist                 |
 | Maps=DM-Antalus | These sections determine the map rotation for your server |
 
 ## [Onslaught.ONSMapListOnslaught]
 
-| Setting                      | Description |
-| ---------------------------- | ----------- |
-| MapNum=0        | Index of last played map for this maplist |
+| Setting         | Description                                               |
+| :-------------- | :-------------------------------------------------------- |
+| MapNum=0        | Index of last played map for this maplist                 |
 | Maps=ONS-Torlan | These sections determine the map rotation for your server |
 
 ## [UT2K4Assault.ASMapList]
 
-| Setting                      | Description |
-| ---------------------------- | ----------- |
-| MapNum=0       | Index of last played map for this maplist |
+| Setting        | Description                                               |
+| :------------- | :-------------------------------------------------------- |
+| MapNum=0       | Index of last played map for this maplist                 |
 | Maps=AS-Convoy | These sections determine the map rotation for your server |
 
 # Invasion Wave Settings
@@ -735,7 +732,7 @@ For each custom bot, you must have one ConfigArray entry in your server's ini un
 There are 16 waves possible in the Invasion gametype. Each waves' settings are determined by the Waves[x] parameter in the SkaarjPack.Invasion section of the ini. The following is a more detailed explanation of those settings:
 
 | Setting                      | Description |
-| ---------------------------- | ----------- |
+| :---------------------------- | :----------- |
 | WaveMask        | This parameter is used for random number generation, and really shouldn't be modified. |
 | WaveMaxMonsters | The maximum number of monsters spawned during a wave is determined as follows. Let's assume that WaveMaxMonsters is set at 16. If more than 4 players are connected, then the value of WaveMaxMonsters is multiplied by 2, or the number of players divided by 4, whichever is lower. This means that if 4 players were connected, for instance, then the actual max number of mosters for this wave would be (16 * (4 / 4)) or 16 * 1, which is 16. If 12 player are connected, the the max number of monsters in this wave would be (16 * 2), since 2 is less than (16 / 4). The actual maximum number of monsters that could be spawned during this wave would then be 32. You can use this formula to tweak exactly monsters you'd like players to be up against based on how many connections you allow on your server |
 | WaveDuration    | Number of seconds the wave will last. If the maximum number of monsters for this wave have not been exterminated by the time this duration expires, all of the remaining monsters will be spawned immediately. Once this happens, any monsters that cannot be seen by any player are killed off, leaving players to finish up what's left. |
@@ -749,13 +746,11 @@ Each additional custom bot parameter must follow a fairly rigid syntax, which is
 
 The following text should be on a single line
 
-```
+```text
 ConfigArray=(CharacterName="Gorge",PlayerName="The_Reaper",FavoriteWeapon="xWeapons.RocketLauncher", Aggresiveness=0.400000,Accuracy=0.000000,CombatStyle=0.400000,StrafingAbility=0.765789,Tactics=0.000000, ReactionTime=0.000000,bJumpy=True)
 ```
 
 An explanation of the inner values is as follows:
-
-#### [UnrealGame.CustomBotConfig]
 
 | Setting                      | Description |
 | ---------------------------- | ----------- |

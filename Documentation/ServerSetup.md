@@ -19,7 +19,7 @@ Warning: You must enter an email capable of receiving a .reg file (if you email 
 
 Edit your `runserver.bat` file that is stored in your ut2004\system folder and change it from:
 
-```
+```text
 @echo off
 :10
 ucc server %1 %2 %3 %4 %5 %6 %7 %8 %9 -log=server.log
@@ -29,7 +29,7 @@ goto 10
 
 to:
 
-```
+```text
 @echo off
 :10
 ucc server ONS-Torlan?game=Onslaught.ONSOnslaughtGame ini=UT2004.ini log=server.log
@@ -41,7 +41,7 @@ This will start a basic Onslaught Server.
 
 To run as different servers change the line:
 
-```
+```text
 ONS-Torlan?game=Onslaught.ONSOnslaughtGame
 ```
 
@@ -61,7 +61,7 @@ Here is a list of available gametypes in the retail package. If you installed a 
 
 If you are starting a LAN based server, add `-lanplay` to you command line. This will also increase map download speeds.
 
-```
+```text
 @echo off
 :10
 ucc server CTF-Yesterday?game=XGame.xCTFGame ini=UT2004.ini log=server.log -lanplay
@@ -75,7 +75,7 @@ The principle for running a Linux server is very similar. You use the same start
 
 For example to run an ctf server via the linux command line we would have something like:
 
-```
+```text
 ucc-bin server CTF-BridgeOfFate?game=XGame.xCTFGame ini=ut2004.ini -nohomedir
 ```
 
@@ -85,7 +85,7 @@ If you wish to start a different type of server then simply use one of the comma
 
 Lastly, if you are starting your server via putty then you may wish to run your server in the background so that it stays running once you exit putty. This is simple to do by adding & to the end of your command line. For example:
 
-```
+```text
 ucc-bin server CTF-BridgeOfFate?game=XGame.xCTFGame ini=ut2004.ini -nohomedir &
 ```
 
@@ -93,13 +93,13 @@ ucc-bin server CTF-BridgeOfFate?game=XGame.xCTFGame ini=ut2004.ini -nohomedir &
 
 We will use the Instagib mutator as an example of how to add mutator support. This is simply done by adding:
 
-```
+```text
 ?mutator=MutatorName
 ```
 
 All you need to do is change the part that says:
 
-```
+```text
 ONS-Torlan?game=Onslaught.ONSOnslaughtGame
 DM-Rankin?game=XGame.xTeamGame
 AS-MotherShip?game=UT2k4Assault.ASGameInfo
@@ -115,7 +115,7 @@ and add `?mutator=XGame.MutInstaGib`
 
 like:
 
-```
+```text
 DM-Antalus?game=XGame.XDeathmatch?mutator=XGame.MutInstaGib
 CTF-Citadel?game=XGame.xCTFGame?mutator=XGame.MutInstaGib
 BR-Anubis?game=XGame.xBombingRun?mutator=XGame.MutInstaGib
@@ -128,7 +128,7 @@ DM-Morpheus3?game=BonusPack.xLastManStandingGame?mutator=XGame.MutInstaGib
 
 If you want to use multiple mutators simply separate them with a comma e.g.:
 
-```
+```text
 mutator=XGame.MMutInstaGib,UnrealGame.MutLowGrav
 ```
 
@@ -138,37 +138,37 @@ will add instagib and lowgravity.
 
 Installing mutators can make your server non-standard. For custom gametypes (this includes Vehicle CTF, Invasion and InstaGib CTF) the masterserver does not distinguish between standard and non standard servers. If your server became non-standard and you do not run any mutators besides the ones below, chances are you have changed the weapon stay (TDM only), game speed or translocator availability.
 
-| Class name                        | Mutator Description  | Standard? |
-| --------------------------------- | -------------------- | --------- |
-| BonusPack.MutCrateCombo           | Bonus Combos         |           |
-| OnslaughtBP.MutBonusVehicles      | Replaces some vehicles of retail Onslaught maps with the ones in the bonus pack |  |
-| Onslaught.MutBigWheels            | BigWheels            |           |
-| Onslaught.MutLightweightVehicles  | Lightweight Vehicles |           |
-| Onslaught.MutOnslaughtWeapons     | Onslaught Weapons    |           |
-| Onslaught.MutWheeledVehicleStunts | Stunt Vehicles       | Y         |
-| OnslaughtFull.MutVehicleArena     | Vehicle Arena        |           |
-| UTClassic.MutUTClassic            | UT Classic           |           |
-| UTClassic.MutUseLightning         | Lightning Guns       | Y         |
-| UTClassic.MutUseSniper            | Sniper Rifles        | Y         |
-| UTV2004s.utvMutator               | UTV2004S             |           |
-| UnrealGame.MutBerserk             | Super Berserk        |           |
-| UnrealGame.MutBigHead             | BigHead              | Y         |
-| UnrealGame.MutGameSpeed           | Game Speed           |           |
-| UnrealGame.MutLowGrav             | LowGrav              |           |
-| UnrealGame.MutMovementModifier    | Air Control          |           |
-| UTSecure.MutUTSecure              | UT Secure            | Y         |
-| XGame.MutFastWeapSwitch           | UT2003 Style         |           |
-| XGame.MutInstaGib                 | InstaGib             |           |
-| XGame.MutNoAdrenaline             | No Adrenaline        | Y         |
-| XGame.MutQuadJump                 | QuadJump             |           |
-| XGame.MutRegen                    | Regeneration         |           |
-| XGame.MutSlomoDeath               | Slow Motion Corpses  |           |
-| XGame.MutSpeciesStats             | Species Statistics   |           |
-| XGame.MutUDamageReward            | UDamage Reward       |           |
-| XGame.MutVampire                  | Vampire              |           |
-| XGame.MutZoomInstagib             | Zoom InstaGib        |           |
-| XWeapons.MutArena                 | Arena                |           |
-| XWeapons.MutNoSuperWeapon         | No SuperWeapons      | Y         |
+| Class name                        | Mutator Description                                              | Standard? |
+| :-------------------------------- | :--------------------------------------------------------------- | :-------- |
+| BonusPack.MutCrateCombo           | Bonus Combos                                                     |           |
+| OnslaughtBP.MutBonusVehicles      | Replaces some Onslaught vehicles with the ones in the bonus pack |           |
+| Onslaught.MutBigWheels            | BigWheels                                                        |           |
+| Onslaught.MutLightweightVehicles  | Lightweight Vehicles                                             |           |
+| Onslaught.MutOnslaughtWeapons     | Onslaught Weapons                                                |           |
+| Onslaught.MutWheeledVehicleStunts | Stunt Vehicles                                                   | Y         |
+| OnslaughtFull.MutVehicleArena     | Vehicle Arena                                                    |           |
+| UTClassic.MutUTClassic            | UT Classic                                                       |           |
+| UTClassic.MutUseLightning         | Lightning Guns                                                   | Y         |
+| UTClassic.MutUseSniper            | Sniper Rifles                                                    | Y         |
+| UTV2004s.utvMutator               | UTV2004S                                                         |           |
+| UnrealGame.MutBerserk             | Super Berserk                                                    |           |
+| UnrealGame.MutBigHead             | BigHead                                                          | Y         |
+| UnrealGame.MutGameSpeed           | Game Speed                                                       |           |
+| UnrealGame.MutLowGrav             | LowGrav                                                          |           |
+| UnrealGame.MutMovementModifier    | Air Control                                                      |           |
+| UTSecure.MutUTSecure              | UT Secure                                                        | Y         |
+| XGame.MutFastWeapSwitch           | UT2003 Style                                                     |           |
+| XGame.MutInstaGib                 | InstaGib                                                         |           |
+| XGame.MutNoAdrenaline             | No Adrenaline                                                    | Y         |
+| XGame.MutQuadJump                 | QuadJump                                                         |           |
+| XGame.MutRegen                    | Regeneration                                                     |           |
+| XGame.MutSlomoDeath               | Slow Motion Corpses                                              |           |
+| XGame.MutSpeciesStats             | Species Statistics                                               |           |
+| XGame.MutUDamageReward            | UDamage Reward                                                   |           |
+| XGame.MutVampire                  | Vampire                                                          |           |
+| XGame.MutZoomInstagib             | Zoom InstaGib                                                    |           |
+| XWeapons.MutArena                 | Arena                                                            |           |
+| XWeapons.MutNoSuperWeapon         | No SuperWeapons                                                  | Y         |
 
 ## Setting up UT2004 Webadmin System
 
@@ -182,7 +182,7 @@ First, we will setup the generic options needed for both systems
 
 Find in your UT2004.ini file this section:
 
-```
+```text
 [UWeb.WebServer]
 Applications[0]=xWebAdmin.UTServerAdmin
 ApplicationPaths[0]=/ServerAdmin
@@ -200,7 +200,7 @@ You may also wish to change `ListenPort=80` to another value. As This will be th
 
 To enable WebAdmin from the command line (ie. just 1 user name/pass) then add the
 
-```
+```text
 ?AdminName=XXXX?AdminPassword=XX
 ```
 
@@ -208,7 +208,7 @@ parameter to your command line.
 
 An example command line would now be:
 
-```
+```text
 ONS-Torlan?game=Onslaught.ONSOnslaughtGame?AdminName=myname?AdminPassword=mypass ini=UT2004.ini log=TypeLogNameHere.log
 ```
 
@@ -222,7 +222,7 @@ Now browser to your server ip:port e.g. http://123.4.56.78:80 and you will be pr
 
 We strongly recommend one of the first things you do is to change the default password. Also, note that you will have to login via console with your username in the format:
 
-```
+```text
 adminlogin user password
 ```
 
@@ -231,8 +231,9 @@ adminlogin user password
 You will need to open some ports in order to allow outside clients to connect to your server. This means that you are using some kind of router. How to forward the ports depends on the router Manufacturer. See your documentation for additional information.
 
 The default ports are:
+
 | Port  | Type   | Description                                                        |
-| ----- | ------ | ------------------------------------------------------------------ |
+| :---- | :----- | :----------------------------------------------------------------- |
 | 7777  | UDP/IP | Game Port                                                          |
 | 7778  | UDP/IP | Query Port; game port + 1                                          |
 | 7787  | UDP/IP | GameSpy Query Port; game port + 10                                 |
@@ -243,7 +244,7 @@ Also make sure you set the following to True
 
 Find the `[IpDrv.MasterServerUplink]` part in your server's ini file, and modify the following value:
 
-```
+```text
 ServerBehindNAT=True
 ```
 
@@ -251,7 +252,7 @@ If you are unable to browse webadmin using the external IP address of your serve
 
 Find the `[UWeb.WebServer]` in your server's .ini file, and modify the following value (where x.x.x.x is your public internet IP address ):
 
-```
+```text
 ServerName=x.x.x.x
 ```
 
