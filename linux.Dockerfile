@@ -36,7 +36,7 @@ LABEL architecture="amd64" \
       org.opencontainers.image.vendor="Laclede's LAN"
 
 RUN dpkg --add-architecture i386 && \
-    apt-get update && apt-get install -y \
+    apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y \
         ca-certificates lib32gcc-s1 libstdc++5:i386 libstdc++6:i386 libsdl1.2debian locales locales-all tmux && \
     apt-get clean && \
     echo "LC_ALL=en_US.UTF-8" >> /etc/environment && \
